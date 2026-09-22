@@ -8,22 +8,61 @@ RewriteRule ^ - [L]
 #----------------------------
 # REGLE DE RE-ECRITURE
 
+# ROUTE DES TAGS----------------------------------
+
+# ROUTE TAGS.INDEX
+# PATTERN: /tags/id/slug.html
+# TARGET : index.php?tags=index&id=x
+
+RewriteRule ^tags\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ index.php?tags=index&id=$1 [L,QSA]
+
+
 # ROUTE DES CREATIFS----------------------------------
 
 # ROUTE CREATIFS.INDEX
-# PATTERN: /creatifs/2/slug.html
-# TARGET : index.php?creatifs=show&id=x
+# PATTERN: /creatifs/id/slug.html
+# TARGET : index.php?creatifs=index&id=x
 
-RewriteRule ^creatifs\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ index.php?creatifs=show&id=$1 [L,QSA]
+RewriteRule ^creatifs\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ index.php?creatifs=index&id=$1 [L,QSA]
 
 
 # ROUTE DES PROJETS-----------------------------------
 
+# ROUTE PROJECT.UPDATE
+# PATTERN: /projects/id/slug/edit/update.html
+# TARGET : index.php?projets=update&id=x
+
+RewriteRule ^projects/([1-9][0-9]*)/([a-z0-9-]+)/edit/update\.html$ index.php?projets=update&id=$1 [L]
+
+# ROUTE PROJECT.EDIT
+# PATTERN: /projects/id/slug/edit/form.html
+# TARGET : index.php?projets=edit&id=x
+
+RewriteRule ^projects/([1-9][0-9]*)/([a-z0-9-]+)/edit/form\.html$ index.php?projets=edit&id=$1 [L]
+
+# ROUTE PROJECT.DELETE
+# PATTERN: /projets/delete/id/slug.html
+# TARGET : index.php?projets=delete&id=x
+
+RewriteRule ^projets/delete/([1-9][0-9]*)/([a-z0-9-]+)\.html$ index.php?projets=delete&id=$1 [L]
+
+# ROUTE PROJECT.INSERT
+# PATTERN: /projects/add/insert.html
+# TARGET : index.php?projets=insert
+
+RewriteRule ^projects/add/insert\.html$ index.php?projets=insert [L]
+
+# ROUTE PROJECT.ADD
+# PATTERN: /projects/add/form.html
+# TARGET : index.php?projets=addForm
+
+RewriteRule ^projects/add/form\.html$ index.php?projets=addForm [L]
+
+
+
 # ROUTE PROJECT.SHOW
 # PATTERN: /projets/id/slug.html
 # TARGET : index.php?projets=show&id=x
-
-
 
 RewriteRule ^projets\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ index.php?projets=show&id=$1 [L,QSA]
 

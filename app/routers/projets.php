@@ -1,18 +1,35 @@
 <?php
 
-use App\Controllers\PostsController;
+// Route /projets/
 
-include_once '../app/controllers/postsController.php';
+use App\Controllers\ProjetsController;
 
-switch ($_GET['posts']):
+include_once '../app/controllers/projetsController.php';
 
-    case 'search':
+switch ($_GET['projets']):
 
-        PostsController\searchAction($conn, $_GET['query']);
+    case 'edit':
+        ProjetsController\editAction($conn, (int) $_GET['id']);
         break;
 
+    case 'update':
+        ProjetsController\updateAction($conn, (int) $_GET['id']);
+        break;
+
+    case 'delete':
+        ProjetsController\deleteAction($conn, (int) $_GET['id']);
+        break;
+
+    case 'insert':
+        ProjetsController\insertAction($conn);
+        break;
+
+    case 'addForm':
+        ProjetsController\addFormAction($conn);
+        break; 
+
     case 'show':
-        PostsController\showAction($conn,$_GET['id']);
+        ProjetsController\showAction($conn,$_GET['id']);
         break;
 
 endswitch;

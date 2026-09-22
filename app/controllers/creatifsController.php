@@ -4,6 +4,7 @@ namespace App\Controllers\CreatifsController;
 
 use PDO;
 
+// Prepare la liste des projets du creatif choisi et les donnees de la barre laterale.
 function indexAction(PDO $conn): void
 {
     include_once '../app/models/creatifsModel.php';
@@ -15,14 +16,11 @@ function indexAction(PDO $conn): void
     include_once '../app/models/tagsModel.php';
     $tags = \App\Models\TagsModel\findAll($conn);
 
-    global $title, $content, $aside;
+    global $title, $content;
     $page = 1;
     $totalPages = 1;
-    $title = 'Créatif';
+    $title = 'Créatifs';
     ob_start();
     include '../app/views/projets/index.php';
     $content = ob_get_clean();
-    ob_start();
-    include '../app/views/templates/partials/_aside.php';
-    $aside = ob_get_clean();
 }

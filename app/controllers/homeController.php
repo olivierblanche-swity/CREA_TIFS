@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ../app/controllers/projetsController.php
+ * ../app/controllers/homeController.php
  */
 
 namespace App\Controllers\homeController;
@@ -27,13 +27,10 @@ function homeAction(PDO $conn): void
     include_once '../app/models/tagsModel.php';
     $tags = \App\Models\TagsModel\findAll($conn);
 
-    // Prepare le contenu principal et la barre laterale pour le template.
-    global $title, $content, $aside;
+    // Prepare la vue complete pour le template.
+    global $title, $content;
     $title = "HOME";
     ob_start();
     include '../app/views/projets/index.php';
     $content = ob_get_clean();
-    ob_start();
-    include '../app/views/templates/partials/_aside.php';
-    $aside = ob_get_clean();
 }

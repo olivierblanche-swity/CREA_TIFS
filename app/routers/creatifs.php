@@ -1,11 +1,16 @@
 <?php
 
-// Route /creatifs/{id}/{slug}.html reecrite en index.php?creatifs=show&id={id}.
+// Route /creatifs/
+
+use App\Controllers\CreatifsController;
+
+include_once '../app/controllers/creatifsController.php';
+
 switch ($_GET['creatifs'] ?? ''):
     
-    case 'show':
-        include_once '../app/controllers/creatifsController.php';
-        \App\Controllers\CreatifsController\indexAction($conn);
+    case 'index':
+        
+        CreatifsController\indexAction($conn);
         break;
 
     default:

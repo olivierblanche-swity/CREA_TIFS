@@ -3,6 +3,7 @@
 /**
  * ../app/views/templates/partials/_head.php
  */
+use \Core\Helpers;
 ?>
 <meta charset="utf-8" />
     <meta
@@ -11,7 +12,7 @@
     />
     <meta name="description" content="CREA'TIFS - portfolio capillaire, liste des projets" />
     <meta name="author" content="" />
-    <base href="<?php echo htmlspecialchars(PUBLIC_BASE_URL ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+    <base href="<?php echo Helpers\escape(PUBLIC_BASE_URL ?? ''); ?>">
 
     <title>CREA'TIFS - <?php echo $title; ?></title>
 

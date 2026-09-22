@@ -1,5 +1,18 @@
 <?php
 
+// Route /tags/
+
+use App\Controllers\TagsController;
+
 include_once '../app/controllers/tagsController.php';
 
-\App\Controllers\TagsController\indexAction($conn);
+switch ($_GET['tags'] ?? ''):
+    
+    case 'index':
+        
+        TagsController\indexAction($conn);
+        break;
+
+    default:
+        return;
+endswitch;

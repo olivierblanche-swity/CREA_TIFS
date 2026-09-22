@@ -7,17 +7,10 @@
 
 <?php include '../app/views/templates/partials/_nav.php' ?>
 <!-- END nav -->
-<?php include '../app/views/templates/partials/_hero.php' ?>
-    
-<?php include '../app/views/templates/partials/_main.php' ?>
+<?php echo $content; ?>
 <!-- .section -->
 
 <?php include '../app/views/templates/partials/_footer.php' ?>
-
-
-
-
-
 
 <?php include '../app/views/templates/partials/_script.php' ?>
 

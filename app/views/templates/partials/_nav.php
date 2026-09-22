@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ../app/views/templates/partials/_main.php
+ * ../app/views/templates/partials/_nav.php
  */
 ?>
 
@@ -33,7 +33,7 @@
               <a class="nav-link" href="index.html">Les projets</a>
             </li>
             <li class="nav-item">
-              <a class="ct-btn ct-btn--primary ct-btn--sm" href="projets/add/form.html">
+              <a class="ct-btn ct-btn--primary ct-btn--sm" href="projects/add/form.html">
                 <svg class="ct-scissors" style="width:16px;height:16px" viewBox="0 0 24 24" aria-hidden="true">
                   <circle cx="6" cy="6" r="2.6"></circle>
                   <circle cx="6" cy="18" r="2.6"></circle>
