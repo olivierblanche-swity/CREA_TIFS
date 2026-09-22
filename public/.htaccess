@@ -1,0 +1,34 @@
+RewriteEngine on
+
+# Fichiers ou dossiers reels (css, js, images, pdf, zip, etc): pas de reecriture
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+#----------------------------
+# REGLE DE RE-ECRITURE
+
+# ROUTE DES CREATIFS----------------------------------
+
+# ROUTE CREATIFS.INDEX
+# PATTERN: /creatifs/2/slug.html
+# TARGET : index.php?creatifs=show&id=x
+
+RewriteRule ^creatifs\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ index.php?creatifs=show&id=$1 [L,QSA]
+
+
+# ROUTE DES PROJETS-----------------------------------
+
+# ROUTE PROJECT.SHOW
+# PATTERN: /projets/id/slug.html
+# TARGET : index.php?projets=show&id=x
+
+
+
+RewriteRule ^projets\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ index.php?projets=show&id=$1 [L,QSA]
+
+#-----------------------------
+# FALLBACK
+# toute autre URL non prise en charge retour vers index.php
+
+RewriteRule ^ index.php [L]
