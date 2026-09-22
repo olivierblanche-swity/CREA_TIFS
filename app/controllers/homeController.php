@@ -9,7 +9,7 @@ namespace App\Controllers\homeController;
 use \PDO;
 use \App\Models\ProjetsModel;
 
-function homeAction(PDO $conn): void
+function homeAction(PDO $conn)
 {
     // Charge les fonctions du modele utilisees par la page.
     include_once '../app/models/projetsModel.php';

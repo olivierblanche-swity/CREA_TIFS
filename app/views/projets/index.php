@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * ../app/views/projets/index.php
  * @var array $projets 
  * Champs : projetId, projetTitre, projetText, projetDate, projetImage, creatifPseudo, creatifId
  * @var int $totalPages

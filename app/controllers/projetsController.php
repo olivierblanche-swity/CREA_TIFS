@@ -15,11 +15,13 @@ function showAction(PDO $conn, int $id)
 
     $projet = ProjetsModel\findOneById($conn, $id);
 
+
     // Recupere les tags du projet.
     include_once '../app/models/tagsModel.php';
     $projetTags = TagsModel\findByProject($conn, $id);
     // Recupere les donnees de la barre laterale.
-    $creatifs = ProjetsModel\findCreatifs($conn);
+    include_once '../app/models/creatifsModel.php';
+    $creatif = \App\Models\CreatifsModel\findOneById($conn, (int) $projet['creatifId']);
     $tags = TagsModel\findAll($conn);
 
     // Prepare la vue complete pour le template.
@@ -49,7 +51,7 @@ function addFormAction(PDO $conn)
 }
 
 // Recupere le formulaire et la photo, ajoute le projet puis redirige vers l'accueil.
-function insertAction(PDO $conn): void
+function insertAction(PDO $conn)
 {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         header('Location: ' . PUBLIC_BASE_URL . 'projects/add/form.html');
@@ -81,7 +83,7 @@ function insertAction(PDO $conn): void
 }
 
 // Supprime le projet demande puis retourne a la page d'accueil.
-function deleteAction(PDO $conn, int $id): void
+function deleteAction(PDO $conn, int $id)
 {
     include_once '../app/models/projetsModel.php';
 
@@ -94,7 +96,7 @@ function deleteAction(PDO $conn, int $id): void
 }
 
 // Charge le projet et ses tags pour preremplir le formulaire.
-function editAction(PDO $conn, int $id): void
+function editAction(PDO $conn, int $id)
 {
     include_once '../app/models/projetsModel.php';
     include_once '../app/models/tagsModel.php';
@@ -116,7 +118,7 @@ function editAction(PDO $conn, int $id): void
 }
 
 // Enregistre les modifications puis retourne a l'accueil.
-function updateAction(PDO $conn, int $id): void
+function updateAction(PDO $conn, int $id)
 {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         header('Location: ' . PUBLIC_BASE_URL);

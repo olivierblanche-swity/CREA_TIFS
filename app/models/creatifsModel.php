@@ -5,7 +5,7 @@ namespace App\Models\CreatifsModel;
 use PDO;
 
 // Recupere les dix derniers projets du creatif choisi.
-function findAll(PDO $conn, int $creatifId): array
+function findAll(PDO $conn, int $creatifId)
 {
     $sql = "SELECT p.id AS projetId, p.titre AS projetTitre, p.texte AS projetText,
                    p.dateCreation AS projetDate, p.image AS projetImage,
@@ -24,7 +24,7 @@ function findAll(PDO $conn, int $creatifId): array
 }
 
 // Liste les creatifs avec leur nombre de projets.
-function findCreatifs(PDO $conn): array
+function findCreatifs(PDO $conn)
 {
     $sql = 'SELECT c.id, c.pseudo, c.bio, c.image, COUNT(p.id) AS projetCount
             FROM creatifs c
@@ -33,4 +33,15 @@ function findCreatifs(PDO $conn): array
             ORDER BY c.pseudo';
 
     return $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Recupere le profil du creatif associe au projet.
+function findOneById(PDO $conn, int $id)
+{
+    $sql = 'SELECT id, pseudo, bio, image FROM creatifs WHERE id = :id';
+    $rs = $conn->prepare($sql);
+    $rs->bindValue(':id', $id, PDO::PARAM_INT);
+    $rs->execute();
+
+    return $rs->fetch(PDO::FETCH_ASSOC);
 }

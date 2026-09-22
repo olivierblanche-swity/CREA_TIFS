@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * Barre laterale liste des creatifs et  liste des tags.
  * ../app/views/templates/partials/_aside.php
  * @var array $creatifs
  * @var array $tags

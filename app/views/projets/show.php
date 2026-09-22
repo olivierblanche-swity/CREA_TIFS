@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * 
+ *../app/views/projets/show.php
  * @var array $projet 
  * variable disponible projet[projetId,projetTitre,projetText,projetDate, projetImage, creatifPseudo, creatifId]
  * @var array $projetTags
@@ -54,6 +56,6 @@ use \Core\Helpers;
       </article>
     </main>
 
-    <?php include '../app/views/templates/partials/_aside.php'; ?>
+    <?php include '../app/views/templates/partials/_asideProjet.php'; ?>
   </div>
 </div>

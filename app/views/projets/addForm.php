@@ -1,7 +1,7 @@
 <?php
 /**
  * 
- * app/views/projets/addForm.php
+ * ../app/views/projets/addForm.php
  * @var array $creatifs
  * @var array $tags
  *  

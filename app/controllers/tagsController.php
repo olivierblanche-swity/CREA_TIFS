@@ -5,7 +5,7 @@ namespace App\Controllers\TagsController;
 use PDO;
 
 // Prepare la liste des projets du tag choisi et les donnees de la barre laterale.
-function indexAction(PDO $conn): void
+function indexAction(PDO $conn)
 {
     include_once '../app/models/tagsModel.php';
     include_once '../app/models/creatifsModel.php';
