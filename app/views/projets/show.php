@@ -32,14 +32,11 @@ use \Core\Helpers;
           <?php endif; ?>
           <div class="<?php echo empty($projet['projetImage']) ? 'col-12' : 'col-md-6'; ?>">
             <p class="lead" style="font-weight: 600">
-              <?php echo Helpers\escape($projet['projetText']); ?>
+              <?php echo Helpers\escape(Helpers\truncate($projet['projetText'], 40)); ?>
             </p>
             <hr />
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam
-              dolorum sed, consequatur, beatae veritatis, laboriosam soluta
-              expedita aliquid quam, cupiditate non. Maiores, itaque
-              repudiandae. Maiores dolorum eligendi, aut ipsam officia.
+              <?php echo Helpers\escape($projet['projetText']); ?>
             </p>
             <hr />
             <ul class="ct-tags">
