@@ -13,6 +13,4 @@ switch ($_GET['tags'] ?? ''):
         TagsController\indexAction($conn);
         break;
 
-    default:
-        return;
 endswitch;

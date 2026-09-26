@@ -15,6 +15,7 @@ function indexAction(PDO $conn)
 
     $creatifId = $_GET['id'];
     $projets = \App\Models\CreatifsModel\findAll($conn, $creatifId);
+    $creatif = \App\Models\CreatifsModel\findOneById($conn, (int) $creatifId);
 
     $creatifs = \App\Models\CreatifsModel\findCreatifs($conn);
     include_once '../app/models/tagsModel.php';
@@ -23,7 +24,7 @@ function indexAction(PDO $conn)
     global $title, $content;
     $page = 1;
     $totalPages = 1;
-    $title = 'Créatifs';
+    $title = 'Créatifs : ' . $creatif['pseudo'];
     ob_start();
     include '../app/views/projets/index.php';
     $content = ob_get_clean();

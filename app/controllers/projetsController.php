@@ -6,6 +6,34 @@ use PDO;
 use \App\Models\ProjetsModel;
 use \App\Models\TagsModel;
 
+// prepare pour la page d accueil
+
+function indexAction(PDO $conn)
+{
+    // Charge les fonctions du modele utilisees par la page.
+    include_once '../app/models/projetsModel.php';
+
+    // Determine la page demandee et limite l'affichage a 10 projets.
+    $projectsPerPage = 10;
+    $page = max(1, (int) ($_GET['page'] ?? 1));
+    $totalProjects = ProjetsModel\countAll($conn);
+    $totalPages = max(1, (int) ceil($totalProjects / $projectsPerPage));
+    $page = min($page, $totalPages);
+    $projets = ProjetsModel\findAll($conn, $projectsPerPage, ($page - 1) * $projectsPerPage);
+
+    // Recupere les donnees affichees dans la barre laterale.
+    $creatifs = ProjetsModel\findCreatifs($conn);
+    include_once '../app/models/tagsModel.php';
+    $tags = \App\Models\TagsModel\findAll($conn);
+
+    // Prepare la vue complete pour le template.
+    global $title, $content;
+    $title = "Page d'Accueil";
+    ob_start();
+    include '../app/views/projets/index.php';
+    $content = ob_get_clean();
+}
+
 // Prepare le detail du projet, ses tags et la barre laterale.
 function showAction(PDO $conn, int $id)
 {
@@ -26,7 +54,7 @@ function showAction(PDO $conn, int $id)
 
     // Prepare la vue complete pour le template.
     global $title, $content;
-    $title = "Les Projets de :" . $projet['creatifPseudo'];
+    $title = "Le Projet : " . $projet['projetTitre'];
     ob_start();
     include '../app/views/projets/show.php';
     $content = ob_get_clean();
@@ -102,10 +130,6 @@ function editAction(PDO $conn, int $id)
     include_once '../app/models/tagsModel.php';
 
     $projet = ProjetsModel\findOneById($conn, $id);
-    if (!$projet) {
-        http_response_code(404);
-        exit('Projet introuvable.');
-    }
     $creatifs = ProjetsModel\findCreatifs($conn);
     $tags = TagsModel\findAll($conn);
     $selectedTags = array_column(TagsModel\findByProject($conn, $id), 'id');
@@ -120,17 +144,9 @@ function editAction(PDO $conn, int $id)
 // Enregistre les modifications puis retourne a l'accueil.
 function updateAction(PDO $conn, int $id)
 {
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        header('Location: ' . PUBLIC_BASE_URL);
-        exit;
-    }
+    
     include_once '../app/models/projetsModel.php';
     $ancienProjet = ProjetsModel\findOneById($conn, $id);
-    if (!$ancienProjet) {
-        http_response_code(404);
-        exit('Projet introuvable.');
-    }
-
     $image = \Core\Helpers\uploadImage($_FILES['image'] ?? []);
     $projet = [
         'titre' => trim($_POST['titre']),
@@ -148,5 +164,4 @@ function updateAction(PDO $conn, int $id)
     if ($image !== null) {
         unlink('../public/images/' . $image);
     }
-    exit("Le projet n'a pas pu être modifié.");
 }

@@ -13,6 +13,4 @@ switch ($_GET['creatifs'] ?? ''):
         CreatifsController\indexAction($conn);
         break;
 
-    default:
-        return;
 endswitch;

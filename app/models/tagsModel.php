@@ -23,6 +23,20 @@ function findAll(PDO $conn)
     return $tags;
 }
 
+// Recupere un tag par son identifiant.
+function findById(PDO $conn, int $tagId)
+{
+    $sql = 'SELECT t.id, t.nom
+            FROM tags t
+            WHERE t.id = :tagId';
+
+    $rs = $conn->prepare($sql);
+    $rs->bindValue(':tagId', $tagId, PDO::PARAM_INT);
+    $rs->execute();
+
+    return $rs->fetch(PDO::FETCH_ASSOC);
+}
+
 // Recupere les dix derniers projets associes au tag choisi.
 function findProjects(PDO $conn, int $tagId)
 {
