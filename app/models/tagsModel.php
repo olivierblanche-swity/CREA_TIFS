@@ -9,7 +9,7 @@ namespace App\Models\TagsModel;
 use PDO;
 
 // Liste les tags et compte les projets associes a chacun.
-function findAll(PDO $conn)
+function findAll(PDO $conn): array
 {
     $sql = 'SELECT t.id, t.nom, COUNT(pht.projet) AS projetCount
             FROM tags t
@@ -24,7 +24,8 @@ function findAll(PDO $conn)
 }
 
 // Recupere un tag par son identifiant.
-function findById(PDO $conn, int $tagId)
+
+function findById(PDO $conn, int $tagId) :array
 {
     $sql = 'SELECT t.id, t.nom
             FROM tags t
@@ -38,7 +39,7 @@ function findById(PDO $conn, int $tagId)
 }
 
 // Recupere les dix derniers projets associes au tag choisi.
-function findProjects(PDO $conn, int $tagId)
+function findProjects(PDO $conn, int $tagId): array
 {
     $sql = 'SELECT p.id AS projetId, p.titre AS projetTitre,
                    p.texte AS projetText, p.dateCreation AS projetDate,
@@ -60,7 +61,7 @@ function findProjects(PDO $conn, int $tagId)
 }
 
 // Recupere les tags associes a un projet.
-function findByProject(PDO $conn, int $projectId)
+function findByProject(PDO $conn, int $projectId): array
 {
     $sql = 'SELECT t.id, t.nom
             FROM tags t

@@ -10,7 +10,7 @@ use \PDO;
 
 
 // Recupere les projets de la page demandee, du plus recent au plus ancien.
-function findAll(PDO $conn, int $limit = 10, int $offset = 0)
+function findAll(PDO $conn, int $limit = 10, int $offset = 0): array
 {
     $sql = "SELECT p.id AS projetId, p.titre AS projetTitre, p.texte AS projetText,
                    p.dateCreation AS projetDate, p.image AS projetImage,
@@ -30,7 +30,7 @@ function countAll(PDO $conn): int
 }
 
 // Liste les creatifs et le nombre de leurs projets pour la barre laterale et les formulaires.
-function findCreatifs(PDO $conn)
+function findCreatifs(PDO $conn): array
 {
     $sql = 'SELECT c.id, c.pseudo, c.bio, c.image, COUNT(p.id) AS projetCount
             FROM creatifs c
@@ -41,7 +41,8 @@ function findCreatifs(PDO $conn)
 }
 
 // Recupere un projet et son auteur a partir de son identifiant.
-function findOneById(PDO $conn, int $id)
+
+function findOneById(PDO $conn, int $id):array
 {
     $sql = 'SELECT p.id AS projetId, p.titre AS projetTitre, p.texte AS projetText,
                    p.dateCreation AS projetDate, p.image AS projetImage,
@@ -58,7 +59,7 @@ function findOneById(PDO $conn, int $id)
 }
 
 // Ajoute un projet puis ses associations aux tags dans une meme transaction.
-function insert(PDO $conn, array $projet, array $tags)
+function insert(PDO $conn, array $projet, array $tags): bool
 {
     $conn->beginTransaction();
     $sql = 'INSERT INTO projets (titre, texte, dateCreation, image, creatif)
@@ -87,7 +88,7 @@ function insert(PDO $conn, array $projet, array $tags)
 }
 
 // Supprime les associations aux tags avant le projet (cle etrangere).
-function delete(PDO $conn, int $id)
+function delete(PDO $conn, int $id): bool
 {
     $conn->beginTransaction();
 
@@ -109,7 +110,7 @@ function delete(PDO $conn, int $id)
 }
 
 // Modifie le projet et remplace ses associations aux tags.
-function update(PDO $conn, int $id, array $projet, array $tags)
+function update(PDO $conn, int $id, array $projet, array $tags): bool
 {
     $conn->beginTransaction();
     $sql = 'UPDATE projets SET titre = :titre, texte = :texte,
