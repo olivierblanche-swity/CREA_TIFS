@@ -29,42 +29,42 @@ RewriteRule ^creatifs\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ inde
 # ROUTE DES PROJETS-----------------------------------
 
 # ROUTE PROJECT.UPDATE
-# PATTERN: /projets/id/slug/edit/update.html
+# PATTERN: /projects/id/slug/edit/update.html
 # TARGET : index.php?projets=update&id=x
 
-RewriteRule ^projets/([1-9][0-9]*)/([a-z0-9-]+)/edit/update\.html$ index.php?projets=update&id=$1 [L]
+RewriteRule ^projects/([1-9][0-9]*)/([a-z0-9-]+)/edit/update\.html$ index.php?projets=update&id=$1 [L]
 
 # ROUTE PROJECT.EDIT
-# PATTERN: /projets/id/slug/edit/form.html
+# PATTERN: /projects/id/slug/edit/form.html
 # TARGET : index.php?projets=edit&id=x
 
-RewriteRule ^projets/([1-9][0-9]*)/([a-z0-9-]+)/edit/form\.html$ index.php?projets=edit&id=$1 [L]
+RewriteRule ^projects/([1-9][0-9]*)/([a-z0-9-]+)/edit/form\.html$ index.php?projets=edit&id=$1 [L]
 
 # ROUTE PROJECT.DELETE
-# PATTERN: /projets/delete/id/slug.html
+# PATTERN: /projects/delete/id/slug.html
 # TARGET : index.php?projets=delete&id=x
 
-RewriteRule ^projets/delete/([1-9][0-9]*)/([a-z0-9-]+)\.html$ index.php?projets=delete&id=$1 [L]
+RewriteRule ^projects/delete/([1-9][0-9]*)/([a-z0-9-]+)\.html$ index.php?projets=delete&id=$1 [L]
 
 # ROUTE PROJECT.INSERT
-# PATTERN: /projets/add/insert.html
+# PATTERN: /projects/add/insert.html
 # TARGET : index.php?projets=insert
 
-RewriteRule ^projets/add/insert\.html$ index.php?projets=insert [L]
+RewriteRule ^projects/add/insert\.html$ index.php?projets=insert [L]
 
 # ROUTE PROJECT.ADD
-# PATTERN: /projets/add/form.html
+# PATTERN: /projects/add/form.html
 # TARGET : index.php?projets=addForm
 
-RewriteRule ^projets/add/form\.html$ index.php?projets=addForm [L]
+RewriteRule ^projects/add/form\.html$ index.php?projets=addForm [L]
 
 
 
 # ROUTE PROJECT.SHOW
-# PATTERN: /projets/id/slug.html
+# PATTERN: /projects/id/slug.html
 # TARGET : index.php?projets=show&id=x
 
-RewriteRule ^projets\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ index.php?projets=show&id=$1 [L,QSA]
+RewriteRule ^projects\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ index.php?projets=show&id=$1 [L,QSA]
 
 #-----------------------------
 # FALLBACK

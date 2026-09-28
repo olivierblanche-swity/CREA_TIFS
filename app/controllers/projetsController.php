@@ -82,7 +82,7 @@ function addFormAction(PDO $conn)
 function insertAction(PDO $conn)
 {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        header('Location: ' . PUBLIC_BASE_URL . 'projets/add/form.html');
+        header('Location: ' . PUBLIC_BASE_URL . 'projects/add/form.html');
         exit;
     }
 

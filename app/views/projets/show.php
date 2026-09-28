@@ -19,9 +19,9 @@ use \Core\Helpers;
       <p class="ct-byline">par <a href="creatifs/<?php echo (int) $projet['creatifId']; ?>/<?php echo Helpers\slugify($projet['creatifPseudo']); ?>.html"><?php echo Helpers\escape($projet['creatifPseudo']); ?></a> · <?php echo Helpers\dateFormator($projet['projetDate']); ?></p>
 
       <div class="mb-4">
-        <!-- routes: /projets/id/slug/edit/form.html — /projets/delete/id/slug.html -->
-        <a href="projets/<?php echo (int) $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>/edit/form.html" class="ct-btn ct-btn--primary">Éditer le projet</a>
-        <a href="projets/delete/<?php echo (int) $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>.html" class="ct-btn ct-btn--danger" onclick="return confirm('Supprimer définitivement ce projet ?');">Supprimer le projet</a>
+        <!-- routes: /projects/id/slug/edit/form.html — /projects/delete/id/slug.html -->
+        <a href="projects/<?php echo (int) $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>/edit/form.html" class="ct-btn ct-btn--primary">Éditer le projet</a>
+        <a href="projects/delete/<?php echo (int) $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>.html" class="ct-btn ct-btn--danger" onclick="return confirm('Supprimer définitivement ce projet ?');">Supprimer le projet</a>
       </div>
 
       <article class="ct-card">

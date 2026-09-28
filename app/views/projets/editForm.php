@@ -21,7 +21,7 @@ use \Core\Helpers;
       <!-- Formulaire prerempli avec les informations du projet. -->
       <h1 class="mb-4">Modifier un projet</h1>
 
-      <form action="projets/<?php echo (int) $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>/edit/update.html" method="post" enctype="multipart/form-data" class="ct-form-card">
+      <form action="projects/<?php echo (int) $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>/edit/update.html" method="post" enctype="multipart/form-data" class="ct-form-card">
         <label for="title">Titre du projet</label>
         <input
           type="text"

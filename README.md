@@ -70,8 +70,8 @@ Les chemins ci-dessous sont relatifs au dossier `public/`.
 | Action | Chemin |
 | --- | --- |
 | Accueil | `/` ou `/projects` |
-| Détail d'un projet | `/projets/id/slug.html` |
-| Suppression d'un projet | `/projets/delete/id/slug.html` |
+| Détail d'un projet | `/projects/id/slug.html` |
+| Suppression d'un projet | `/projects/delete/id/slug.html` |
 | Formulaire d'ajout | `/projects/add/form.html` |
 | Enregistrement de l'ajout | `/projects/add/insert.html` |
 | Formulaire de modification | `/projects/id/slug/edit/form.html` |
@@ -79,7 +79,7 @@ Les chemins ci-dessous sont relatifs au dossier `public/`.
 | Projets d'un créatif | `/creatifs/id/slug.html` |
 | Projets d'un tag | `/tags/id/slug.html` |
 
-`id` représente l'identifiant en base et `slug` est calculé à partir du titre ou du nom. Les slugs ne sont pas stockés dans les tables. L'alternance entre `projects` et `projets` dans les routes principales suit les consignes de l'examen.
+`id` représente l'identifiant en base et `slug` est calculé à partir du titre ou du nom. Les slugs ne sont pas stockés dans les tables. Toutes les routes publiques de projets utilisent `/projects`.
 
 ## Helpers
 

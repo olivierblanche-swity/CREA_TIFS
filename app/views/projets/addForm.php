@@ -18,12 +18,12 @@ use \Core\Helpers;
     <div class="col-lg-8 py-3">
       <!--
             Routes des formulaires d'ajout et de modification :
-            /projets/add/form.html          (ajout — champs vides)
-            /projets/id/slug/edit/form.html  (modification — champs pré-remplis par le contrôleur)
+            /projects/add/form.html          (ajout — champs vides)
+            /projects/id/slug/edit/form.html (modification — champs pré-remplis par le contrôleur)
           -->
       <h1 class="mb-4">Ajouter un projet</h1>
 
-      <form action="projets/add/insert.html" method="post" enctype="multipart/form-data" class="ct-form-card">
+      <form action="projects/add/insert.html" method="post" enctype="multipart/form-data" class="ct-form-card">
         <label for="title">Titre du projet</label>
         <input
           type="text"

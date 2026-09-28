@@ -7,6 +7,7 @@
  * @var int $totalPages
  * @var int $page
  */
+
 use \Core\Helpers;
 ?>
 
@@ -19,17 +20,17 @@ use \Core\Helpers;
                 <article class="ct-card">
                     <div class="row">
                         <?php if (!empty($projet['projetImage'])): ?>
-                        <div class="col-md-4">
-                            <a href="projets/<?php echo $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>.html">
-                                <img class="img-fluid mb-3 mb-md-0" src="images/<?php echo Helpers\escape($projet['projetImage']); ?>" alt="<?php echo Helpers\escape($projet['projetTitre']); ?>" />
-                            </a>
-                        </div>
+                            <div class="col-md-4">
+                                <a href="projects/<?php echo $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>.html">
+                                    <img class="img-fluid mb-3 mb-md-0" src="images/<?php echo Helpers\escape($projet['projetImage']); ?>" alt="<?php echo Helpers\escape($projet['projetTitre']); ?>" />
+                                </a>
+                            </div>
                         <?php endif; ?>
                         <div class="<?php echo empty($projet['projetImage']) ? 'col-12' : 'col-md-8'; ?>">
-                            <h3><a href="projets/<?php echo $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>.html"><?php echo Helpers\escape($projet['projetTitre']); ?></a></h3>
+                            <h3><a href="projects/<?php echo $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>.html"><?php echo Helpers\escape($projet['projetTitre']); ?></a></h3>
                             <p class="ct-byline">par <a href="creatifs/<?php echo $projet['creatifId']; ?>/<?php echo Helpers\slugify($projet['creatifPseudo']); ?>.html"><?php echo Helpers\escape($projet['creatifPseudo']); ?></a> · <?php echo Helpers\dateFormator($projet['projetDate']); ?></p>
                             <p><?php echo Helpers\escape(Helpers\truncate($projet['projetText'])); ?></p>
-                            <a class="ct-btn ct-btn--primary ct-btn--sm" href="projets/<?php echo $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>.html">Voir le projet</a>
+                            <a class="ct-btn ct-btn--primary ct-btn--sm" href="projects/<?php echo $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>.html">Voir le projet</a>
                         </div>
                     </div>
                 </article>

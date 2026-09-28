@@ -1,6 +1,6 @@
 <?php
 
-// Route /projets/
+// Routes publiques /projects/
 
 use App\Controllers\ProjetsController;
 
@@ -26,12 +26,10 @@ switch ($_GET['projets']):
 
     case 'addForm':
         ProjetsController\addFormAction($conn);
-        break; 
+        break;
 
     case 'show':
-        ProjetsController\showAction($conn,$_GET['id']);
+        ProjetsController\showAction($conn, $_GET['id']);
         break;
 
 endswitch;
-
-
