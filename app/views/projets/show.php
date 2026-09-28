@@ -8,6 +8,7 @@
  * @var array $projetTags
  * 
  */
+
 use \Core\Helpers;
 ?>
 
@@ -18,17 +19,17 @@ use \Core\Helpers;
       <p class="ct-byline">par <a href="creatifs/<?php echo (int) $projet['creatifId']; ?>/<?php echo Helpers\slugify($projet['creatifPseudo']); ?>.html"><?php echo Helpers\escape($projet['creatifPseudo']); ?></a> · <?php echo Helpers\dateFormator($projet['projetDate']); ?></p>
 
       <div class="mb-4">
-        <!-- routes: /projects/id/slug/edit/form.html — /projets/delete/id/slug.html -->
-        <a href="projects/<?php echo (int) $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>/edit/form.html" class="ct-btn ct-btn--primary">Éditer le projet</a>
+        <!-- routes: /projets/id/slug/edit/form.html — /projets/delete/id/slug.html -->
+        <a href="projets/<?php echo (int) $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>/edit/form.html" class="ct-btn ct-btn--primary">Éditer le projet</a>
         <a href="projets/delete/<?php echo (int) $projet['projetId']; ?>/<?php echo Helpers\slugify($projet['projetTitre']); ?>.html" class="ct-btn ct-btn--danger" onclick="return confirm('Supprimer définitivement ce projet ?');">Supprimer le projet</a>
       </div>
 
       <article class="ct-card">
         <div class="row">
           <?php if (!empty($projet['projetImage'])): ?>
-          <div class="col-md-6">
-            <img class="img-fluid mb-3 mb-md-0" src="images/<?php echo Helpers\escape($projet['projetImage']); ?>" alt="<?php echo Helpers\escape($projet['projetTitre']); ?>" />
-          </div>
+            <div class="col-md-6">
+              <img class="img-fluid mb-3 mb-md-0" src="images/<?php echo Helpers\escape($projet['projetImage']); ?>" alt="<?php echo Helpers\escape($projet['projetTitre']); ?>" />
+            </div>
           <?php endif; ?>
           <div class="<?php echo empty($projet['projetImage']) ? 'col-12' : 'col-md-6'; ?>">
             <p class="lead" style="font-weight: 600">

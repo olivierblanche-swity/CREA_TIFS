@@ -29,16 +29,16 @@ RewriteRule ^creatifs\/([1-9][0-9]*)\/[0-9a-z]([a-z0-9\-]*[0-9a-z])*\.html$ inde
 # ROUTE DES PROJETS-----------------------------------
 
 # ROUTE PROJECT.UPDATE
-# PATTERN: /projects/id/slug/edit/update.html
+# PATTERN: /projets/id/slug/edit/update.html
 # TARGET : index.php?projets=update&id=x
 
-RewriteRule ^projects/([1-9][0-9]*)/([a-z0-9-]+)/edit/update\.html$ index.php?projets=update&id=$1 [L]
+RewriteRule ^projets/([1-9][0-9]*)/([a-z0-9-]+)/edit/update\.html$ index.php?projets=update&id=$1 [L]
 
 # ROUTE PROJECT.EDIT
-# PATTERN: /projects/id/slug/edit/form.html
+# PATTERN: /projets/id/slug/edit/form.html
 # TARGET : index.php?projets=edit&id=x
 
-RewriteRule ^projects/([1-9][0-9]*)/([a-z0-9-]+)/edit/form\.html$ index.php?projets=edit&id=$1 [L]
+RewriteRule ^projets/([1-9][0-9]*)/([a-z0-9-]+)/edit/form\.html$ index.php?projets=edit&id=$1 [L]
 
 # ROUTE PROJECT.DELETE
 # PATTERN: /projets/delete/id/slug.html
@@ -47,16 +47,16 @@ RewriteRule ^projects/([1-9][0-9]*)/([a-z0-9-]+)/edit/form\.html$ index.php?proj
 RewriteRule ^projets/delete/([1-9][0-9]*)/([a-z0-9-]+)\.html$ index.php?projets=delete&id=$1 [L]
 
 # ROUTE PROJECT.INSERT
-# PATTERN: /projects/add/insert.html
+# PATTERN: /projets/add/insert.html
 # TARGET : index.php?projets=insert
 
-RewriteRule ^projects/add/insert\.html$ index.php?projets=insert [L]
+RewriteRule ^projets/add/insert\.html$ index.php?projets=insert [L]
 
 # ROUTE PROJECT.ADD
-# PATTERN: /projects/add/form.html
+# PATTERN: /projets/add/form.html
 # TARGET : index.php?projets=addForm
 
-RewriteRule ^projects/add/form\.html$ index.php?projets=addForm [L]
+RewriteRule ^projets/add/form\.html$ index.php?projets=addForm [L]
 
 
 

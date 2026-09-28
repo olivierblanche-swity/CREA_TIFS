@@ -82,7 +82,7 @@ function addFormAction(PDO $conn)
 function insertAction(PDO $conn)
 {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        header('Location: ' . PUBLIC_BASE_URL . 'projects/add/form.html');
+        header('Location: ' . PUBLIC_BASE_URL . 'projets/add/form.html');
         exit;
     }
 
@@ -144,7 +144,7 @@ function editAction(PDO $conn, int $id)
 // Enregistre les modifications puis retourne a l'accueil.
 function updateAction(PDO $conn, int $id)
 {
-    
+
     include_once '../app/models/projetsModel.php';
     $ancienProjet = ProjetsModel\findOneById($conn, $id);
     $image = \Core\Helpers\uploadImage($_FILES['image'] ?? []);
