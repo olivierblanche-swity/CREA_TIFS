@@ -17,7 +17,7 @@ function findAll(PDO $conn, int $limit = 10, int $offset = 0): array
                    c.pseudo AS creatifPseudo, c.id AS creatifId
             FROM projets p
             JOIN creatifs c ON p.creatif = c.id
-            ORDER BY p.dateCreation DESC
+            ORDER BY p.dateCreation DESC, p.id DESC
             LIMIT {$limit} OFFSET {$offset}";
 
     return $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +42,7 @@ function findCreatifs(PDO $conn): array
 
 // Recupere un projet et son auteur a partir de son identifiant.
 
-function findOneById(PDO $conn, int $id):array
+function findOneById(PDO $conn, int $id): array
 {
     $sql = 'SELECT p.id AS projetId, p.titre AS projetTitre, p.texte AS projetText,
                    p.dateCreation AS projetDate, p.image AS projetImage,
